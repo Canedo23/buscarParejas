@@ -112,4 +112,30 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       });
 
+      generarPersonalizadoBtn.addEventListener('click', () => {
+        const filas = parseInt(filasInput.value);
+        const columnas = parseInt(columnasInput.value);
+    
+        
+        if (filas < 2 || columnas < 2) {
+          errorMessage.textContent = "Por favor, ingresa al menos 2 filas y 2 columnas.";
+          errorMessage.style.display = 'block'; 
+          return;
+        }
+    
+        
+        if (filas % 2 !== 0 || columnas % 2 !== 0) {
+          errorMessage.textContent = "El número de filas y columnas debe ser par. Intenta nuevamente.";
+          errorMessage.style.display = 'block'; 
+          return;
+        }
+        
+        errorMessage.style.display = 'none'; 
+        generarTablero(filas, columnas);
+        formPersonalizado.classList.remove('visible');
+      });
+    
+      
+      generarTablero(3, 4);
+
 });
