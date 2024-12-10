@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Parejas</title>
+    <link rel="stylesheet" href="Parejas.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Juego de Parejas</h1>
+            <h3>Adrián Canedo Bello</h3>
+        </header>
+        <main class="main-content">
+            <div class="info">
+                <div id="intentos">Intentos: 0</div>
+                <div id="parejas-restantes">Parejas restantes: 6</div>
+            </div>
+            <div class="tablero" id="tablero"></div>
+            <div class="dificultad">
+                <label>Dificultad:</label>
+                <button class="btn-dificultad" data-filas="3" data-columnas="4">Fácil</button>
+                <button class="btn-dificultad" data-filas="4" data-columnas="4">Media</button>
+                <button class="btn-dificultad" data-filas="5" data-columnas="4">Difícil</button>
+                <button id="personalizado-btn" class="btn-dificultad">Personalizado</button>
+
+                <div id="form-personalizado" class="form-personalizado oculto">
+                    <div class="input-group">
+                        <label for="filas-input">Filas:</label>
+                        <input type="number" id="filas-input" min="2" max="10" value="5">
+                    </div>
+                    <div class="input-group">
+                        <label for="columnas-input">Columnas:</label>
+                        <input type="number" id="columnas-input" min="2" max="10" value="5">
+                    </div>
+                    
+                    <button id="generar-personalizado" class="btn-dificultad">Generar</button>
+                </div>
+
+                <div id="error-message" class="error-message" style="color: red; display: none;"></div>
+            </div>
+        </main>
+    </div>
+    <script src="Parejas.js"></script>
+</body>
+</html>
