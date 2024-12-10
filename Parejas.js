@@ -65,4 +65,35 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
 
+      function verificarPareja() {
+        intentos++;
+        intentosElem.textContent = `Intentos: ${intentos}`;
+    
+        const [primera, segunda] = seleccionadas;
+    
+        if (primera.dataset.valor === segunda.dataset.valor) {
+          primera.classList.add("correcta");
+          segunda.classList.add("correcta");
+          parejasRestantes--;
+          parejasRestantesElem.textContent = `Parejas restantes: ${parejasRestantes}`;
+    
+          
+          if (parejasRestantes === 0) {
+            setTimeout(() => {
+              alert("¡Has ganado!");
+              intentos = 0; 
+              intentosElem.textContent = `Intentos: ${intentos}`; 
+            }, 500);
+          }
+        } else {
+          setTimeout(() => {
+            primera.classList.add("oculta");
+            segunda.classList.add("oculta");
+            primera.textContent = "";
+            segunda.textContent = "";
+          }, 1000);
+        }
+        seleccionadas = [];
+      }
+
 });
