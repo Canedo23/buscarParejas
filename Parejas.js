@@ -30,4 +30,39 @@ document.addEventListener("DOMContentLoaded", () => {
         tablero.appendChild(casilla);
       }
     }
+
+    function generarValoresParejas(filas, columnas) {
+        let total = filas * columnas;
+        let valores = [];
+        for (let i = 1; i <= total / 2; i++) {
+          valores.push(i);
+          valores.push(i);
+        }
+        return valores;
+      }
+    
+      function mezclarArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          let j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+      }
+    
+      function manejarClickCasilla(e) {
+        const casilla = e.target;
+    
+        if (!casilla.classList.contains("oculta") || seleccionadas.length >= 2) {
+          return;
+        }
+    
+        casilla.classList.remove("oculta");
+        casilla.textContent = casilla.dataset.valor;
+        seleccionadas.push(casilla);
+    
+        if (seleccionadas.length === 2) {
+          verificarPareja();
+        }
+      }
+
 });
