@@ -96,4 +96,20 @@ document.addEventListener("DOMContentLoaded", () => {
         seleccionadas = [];
       }
 
+      botonesDificultad.forEach((boton) => {
+        boton.addEventListener("click", (e) => {
+          botonesDificultad.forEach(b => b.classList.remove('active'));
+          
+          if (e.target.id === "personalizado-btn") {
+            formPersonalizado.classList.toggle("visible");
+            errorMessage.style.display = 'none'; 
+          } else {
+            const filas = parseInt(e.target.dataset.filas);
+            const columnas = parseInt(e.target.dataset.columnas);
+            generarTablero(filas, columnas);
+            formPersonalizado.classList.remove('visible');
+          }
+        });
+      });
+
 });
