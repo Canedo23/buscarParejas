@@ -33,3 +33,160 @@ h3 {
     font-size: 1.2rem;
     color: #777;
 }
+
+
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.info, .dificultad {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info {
+    align-items: flex-start;
+}
+
+.dificultad {
+    align-items: flex-end;
+}
+
+#intentos, #parejas-restantes {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.tablero {
+    width: 60%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    justify-items: center;
+}
+
+.casilla {
+    width: 80px;
+    height: 80px;
+    background-color: #007bff; /* Color visible */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    user-select: none;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.casilla.oculta {
+    background-color: #007bff; 
+    opacity: 1; 
+}
+
+.casilla.correcta {
+    background-color: #28a745;
+}
+
+.dificultad {
+    margin-left: 20px;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center; 
+}
+
+.dificultad label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    
+}
+
+.btn-dificultad {
+    display: block;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.btn-dificultad:hover {
+    background-color: #0056b3;
+}
+
+.btn-dificultad.active {
+    background-color: #28a745; 
+    color: white; 
+}
+
+
+.form-personalizado {
+    display: none;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.form-personalizado.visible {
+    display: block;
+}
+
+.form-personalizado label {
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.form-personalizado input {
+    width: 60px; 
+    text-align: center; 
+    margin-bottom: 10px; 
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .info, .dificultad {
+        width: 100%;
+        align-items: center;
+    }
+    
+    .tablero {
+        width: 100%;
+        margin: 20px 0;
+    }
+}
+
+.btn-dificultad.active {
+    background-color: #28a745; 
+    color: white; 
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; 
+}
+
+.input-group label {
+    margin-right: 10px; 
+}
+
+.input-group input {
+    width: 60px; 
+}
